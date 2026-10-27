@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES216BB Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            /*display: none;*/ /* Hide container until password is validated */
+        }
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .section {
+            margin-top: 40px;
+        }
+        .download-button, .upload-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .download-button:hover, .upload-button:hover {
+            background-color: #0056b3;
+        }
+        #countdown {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+    <script>
+        
+        // Encrypt Webpage 
+        // StatiCrypt webpage: https://robinmoisson.github.io/staticrypt/
+        
+        // Password protection
+        // Uncomment: JScript "window.onload" function and CSS "display: none" 
+        /*function passwordPrompt() {
+            const password = prompt("Please enter the password:");
+            if (password === "123qwe") {
+                document.querySelector('.container').style.display = 'block';
+            } else {
+                alert("Incorrect password! Reloading...");
+                location.reload();
+            }
+        }*/
+
+        // Countdown Timer
+        function startCountdown() {
+            const countdownDate = new Date("Oct 20, 2025 14:30:00 GMT+0200").getTime();
+
+            const interval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.getElementById("countdown").innerHTML = "Evaluation Closed";
+                }
+            }, 1000);
+        }
+        
+
+        // Initiate password prompt and countdown timer
+        window.onload = function() {
+            //passwordPrompt();
+            startCountdown();
+        }
+
+        // Download function
+        function downloadFiles1() {
+            const files = [
+                'Files/ES216BB_Evaluation_3B.pdf',
+            ];
+
+            files.forEach(file => {
+                const a = document.createElement('a');
+                a.href = file;
+                a.download = file.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        }
+        function downloadFiles2() {
+            const files = [
+                'Files/ES216BB_Evaluation3B_TemplateHeader.h',
+            ];
+
+            files.forEach(file => {
+                const a = document.createElement('a');
+                a.href = file;
+                a.download = file.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        }
+        function downloadFiles3() {
+            const files = [
+                'Files/ES216BB_Evaluation3B.cpp',
+            ];
+
+            files.forEach(file => {
+                const a = document.createElement('a');
+                a.href = file;
+                a.download = file.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        }
+        function downloadFiles4() {
+            const files = [
+                'Files/TextFile_CourseEnrollment.txt',
+            ];
+
+            files.forEach(file => {
+                const a = document.createElement('a');
+                a.href = file;
+                a.download = file.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        }
+        function downloadFiles5() {
+            const files = [
+                'Files/ES216BB_Evaluation3B.old',
+            ];
+
+            files.forEach(file => {
+                const a = document.createElement('a');
+                a.href = file;
+                a.download = file.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        }
+        
+        // Auto-refresh every 10 minutes (600000 ms)
+        setTimeout(function() {
+            alert("Session Expired");
+            location.reload();
+            //}, 60000); // 1 minute in milliseconds
+            }, 600000); // 10 minutes in milliseconds
+
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+        
+        <img src="TUTLogo.jpg" alt="Heading Image"/>
+        
+        <h1>Engineering Software Design Evaluation</h1>
+        
+        <!-- Countdown Timer -->
+        <div id="countdown"></div>
+        
+        <div class="section">
+            
+            <h3>Evaluation 3B File Download</h3>
+             
+            <!--
+            - Evaluation Question Paper -<br>
+            - Evaluation CPP File -<br>
+            - Evaluation Template H File -<br>
+            - Evaluation Text File -<br>
+            - Evaluation Showcase EXE File -<br>
+            -->
+            
+            <button class="download-button" onclick="downloadFiles1()"><b>Question Paper </b></button>
+            &nbsp;&nbsp;
+            
+            <button class="download-button" onclick="downloadFiles2()"><b>Template H File</b></button>
+            &nbsp;&nbsp;
+            
+            <button class="download-button" onclick="downloadFiles3()"><b>Demo CPP File  </b></button>
+            &nbsp;&nbsp;
+
+            <button class="download-button" onclick="downloadFiles4()"><b>Demo TXT File  </b></button>
+            &nbsp;&nbsp;
+            
+            <button class="download-button" onclick="downloadFiles5()"><b>Demo EXE File  </b></button>
+
+
+        </div>
+
+        <div class="section">
+            <h3>Evaluation 3B Submission</h3>
+                   
+            <!-- Session A -->
+            <!--
+            <div data-fillout-id="hYo6CgWbPjus" data-fillout-embed-type="popup" data-fillout-button-text="Submission Link" data-fillout-dynamic-resize data-fillout-inherit-parameters data-fillout-popup-size="large"></div><script src="https://server.fillout.com/embed/v1/"></script>
+            -->
+
+            <!-- Session B -->
+            <div data-fillout-id="usqLqQtAwrus" data-fillout-embed-type="popup" data-fillout-button-text="Submission Link" data-fillout-dynamic-resize data-fillout-inherit-parameters data-fillout-popup-size="large"></div><script src="https://server.fillout.com/embed/v1/"></script>
+            
+            
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>
